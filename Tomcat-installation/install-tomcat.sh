@@ -12,15 +12,15 @@ sudo yum install java-1.8.0-openjdk-devel -y
 
 
 # dowanload and extract tomcat software
-sudo wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.55/bin/apache-tomcat-9.0.55.tar.gz
-sudo tar -xvf apache-tomcat-9.0.55.tar.gz
-sudo rm apache-tomcat-9.0.55.tar.gz
+sudo wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.16/bin/apache-tomcat-10.0.16.tar.gz
+sudo tar -xvf apache-tomcat-10.0.16.tar.gz
+sudo rm apache-tomcat-10.0.16.tar.gz
 
-sudo chmod 777 -R /opt/tomcat9
-sudo sh /opt/tomcat9/bin/startup.sh
+sudo chmod 777 -R /opt/tomcat10
+sudo sh /opt/tomcat10/bin/startup.sh
 # create a soft link to start and stop tomcat from anywhere 
-sudo ln -s /opt/tomcat9/bin/startup.sh /usr/bin/starttomcat
-sudo ln -s /opt/tomcat9/bin/shutdown.sh /usr/bin/stoptomcat
+sudo ln -s /opt/tomcat10/bin/startup.sh /usr/bin/starttomcat
+sudo ln -s /opt/tomcat10/bin/shutdown.sh /usr/bin/stoptomcat
 sudo starttomcat
 echo "end on tomcat installation"
 #========
@@ -30,18 +30,18 @@ echo "end on tomcat installation"
 
 #Tomcat server configuration:
 find / -name server.xml context.xml
-vim /opt/tomcat9/conf/server.xml
-vi /opt/tomcat9/webapps/manager/META-INF/context.xml
-vi /opt/tomcat9/conf/tomcat-user.xml  # to add user
+vim /opt/tomcat10/conf/server.xml
+vi /opt/tomcat10/webapps/manager/META-INF/context.xml
+vi /opt/tomcat10/conf/tomcat-user.xml  # to add user
 
 	<user username="landmark" password="admin" roles="manager-gui,admin-gui"/>
 	
 
-/opt/tomcat9/conf/context.xml
+/opt/tomcat10/conf/context.xml
 
- vi /opt/tomcat9/webapps/manager/META-INF/context.xml
+ vi /opt/tomcat10/webapps/manager/META-INF/context.xml
   
-  vi /opt/tomcat9/conf/tomcat-user.xml  # to add user
+  vi /opt/tomcat10/conf/tomcat-user.xml  # to add user
   
 	
 	username YourName password=PassWord   roles=manager-gui
