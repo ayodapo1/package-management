@@ -31,7 +31,14 @@ echo "end on tomcat installation"
 #Tomcat server configuration:
 find / -name server.xml context.xml
 vim /opt/tomcat10/conf/server.xml
+
 vi /opt/tomcat10/webapps/manager/META-INF/context.xml
+#comment out this section in the context.xml as shown below
+<!--
+ <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+        allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+-->
+
 vi /opt/tomcat10/conf/tomcat-users.xml  # to add user
 
 	<user username="landmark" password="admin123" roles="manager-gui,admin-gui,manager-script"/>
